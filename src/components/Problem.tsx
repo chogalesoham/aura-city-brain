@@ -1,0 +1,74 @@
+import { motion } from "framer-motion";
+import { AlertTriangle, Lock, Settings } from "lucide-react";
+
+const Problem = () => {
+  const problems = [
+    {
+      icon: AlertTriangle,
+      title: "Reactive Security",
+      description: "Cities respond only after incidents occur — when it's already too late to prevent harm.",
+    },
+    {
+      icon: Lock,
+      title: "Siloed Systems",
+      description: "Critical infrastructure operates in isolation, unable to share data or coordinate responses.",
+    },
+    {
+      icon: Settings,
+      title: "Infrastructure Decay",
+      description: "Outdated technology wastes resources, delays emergency services, and fails citizens.",
+    },
+  ];
+
+  return (
+    <section id="problem" className="py-32 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(0,212,255,0.08),transparent_70%)]" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+            Cities Are Flying Blind
+          </h2>
+          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
+            Reactive, disconnected, and dangerously inefficient.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {problems.map((problem, index) => {
+            const Icon = problem.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="glass-card p-8 rounded-xl hover:neon-glow transition-all duration-500 cursor-pointer group"
+              >
+                <motion.div 
+                  className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Icon className="text-primary" size={32} />
+                </motion.div>
+                <h3 className="text-2xl font-space-grotesk font-bold mb-4 text-foreground">{problem.title}</h3>
+                <p className="text-foreground/70 font-inter leading-relaxed">{problem.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Problem;
