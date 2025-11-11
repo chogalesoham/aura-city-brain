@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-smart-pole.jpg";
 
 const HeroSection = () => {
   const handleDiscoverClick = () => {
@@ -71,17 +70,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="relative"
+            className="relative flex justify-center"
           >
             <motion.div 
-              className="relative glass-card p-4 rounded-2xl animate-glow-pulse"
+              className="relative glass-card p-4 rounded-2xl animate-glow-pulse max-w-md"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               <img
-                src={heroImage}
-                alt="AURA AI Smart Pole - Intelligent Infrastructure"
-                className="rounded-xl w-full"
+                src="/camera.png"
+                alt="AURA Future Camera - AI-Powered Surveillance"
+                className="rounded-xl w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent rounded-xl" />
             </motion.div>
