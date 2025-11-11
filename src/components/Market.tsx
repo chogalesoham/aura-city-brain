@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Globe, Zap } from "lucide-react";
+import { DollarSign, BarChart3, MapPinned } from "lucide-react";
 
 const Market = () => {
   const stats = [
     {
-      icon: TrendingUp,
+      icon: DollarSign,
       value: "₹3.70 L Cr",
       label: "Invested in India's Smart City Mission",
     },
     {
-      icon: Globe,
+      icon: BarChart3,
       value: "20.8%",
       label: "Global Smart Pole Market CAGR",
     },
     {
-      icon: Zap,
+      icon: MapPinned,
       value: "100+",
       label: "Smart Cities in Development Phase",
     },

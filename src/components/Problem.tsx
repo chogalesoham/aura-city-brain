@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, Lock, Settings } from "lucide-react";
+import { Clock, Link2Off, Construction } from "lucide-react";
 
 const Problem = () => {
   const problems = [
     {
-      icon: AlertTriangle,
+      icon: Clock,
       title: "Reactive Security",
       description: "Cities respond only after incidents occur — when it's already too late to prevent harm.",
     },
     {
-      icon: Lock,
+      icon: Link2Off,
       title: "Siloed Systems",
       description: "Critical infrastructure operates in isolation, unable to share data or coordinate responses.",
     },
     {
-      icon: Settings,
+      icon: Construction,
       title: "Infrastructure Decay",
       description: "Outdated technology wastes resources, delays emergency services, and fails citizens.",
     },

@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { Eye, Ear, Waves } from "lucide-react";
+import { Video, Mic, Thermometer } from "lucide-react";
 
 const Solution = () => {
   const features = [
     {
-      icon: Eye,
+      icon: Video,
       title: "Sees",
       description: "High-resolution, thermal, and Lidar cameras capture every movement and detail in real time.",
     },
     {
-      icon: Ear,
+      icon: Mic,
       title: "Hears",
       description: "Advanced audio AI detects distress signals, crashes, gunshots, and anomalies instantly.",
     },
     {
-      icon: Waves,
+      icon: Thermometer,
       title: "Senses",
       description: "Environmental sensors monitor air quality, temperature, seismic activity, and crowd density.",
     },

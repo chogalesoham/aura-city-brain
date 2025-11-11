@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { Server, Cloud, Database, Wrench, Package } from "lucide-react";
+import { HardDrive, CloudCog, Database, Users, PackageCheck } from "lucide-react";
 
 const BusinessModel = () => {
   const revenueStreams = [
     {
-      icon: Server,
+      icon: HardDrive,
       title: "HaaS",
       percentage: "20%",
       description: "Hardware as a Service",
     },
     {
-      icon: Cloud,
+      icon: CloudCog,
       title: "SaaS",
       percentage: "40%",
       description: "Software & AI Analytics Platform",
@@ -22,13 +22,13 @@ const BusinessModel = () => {
       description: "Data as a Service",
     },
     {
-      icon: Wrench,
+      icon: Users,
       title: "Professional Services",
       percentage: "15%",
       description: "Consulting & Integration",
     },
     {
-      icon: Package,
+      icon: PackageCheck,
       title: "Installation",
       percentage: "10%",
       description: "Deployment & Setup",
