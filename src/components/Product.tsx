@@ -50,6 +50,27 @@ const Product = () => {
           </p>
         </motion.div>
 
+        {/* Product Demo Video */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <div className="glass-card p-3 rounded-2xl hover:neon-glow transition-all duration-500">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-xl"
+            >
+              <source src="/v2.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;

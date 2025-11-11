@@ -22,6 +22,42 @@ const About = () => {
           </p>
         </motion.div>
 
+        {/* Video Showcase */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto mb-16"
+        >
+          <div className="glass-card p-3 rounded-2xl border border-primary/20 hover:border-primary/40 transition-all duration-500">
+            <div className="relative rounded-xl overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto rounded-xl"
+              >
+                <source src="/v1.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+              
+              {/* Video Overlay Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                viewport={{ once: true }}
+                className="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-1">AURA in Action</h3>
+                <p className="text-foreground/70">See how our AI technology transforms urban safety</p>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

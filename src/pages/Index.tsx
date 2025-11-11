@@ -18,9 +18,9 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <HeroSection />
+      <Product />
       <Problem />
       <Solution />
-      <Product />
       <AICore />
       <UseCases />
       <Market />
