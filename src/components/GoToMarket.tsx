@@ -35,10 +35,10 @@ const GoToMarket = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             From Pilot to National Scale
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
             Our phased approach ensures <span className="text-primary font-semibold">rapid adoption</span> and <span className="text-secondary font-semibold">proven results</span> at every stage.
           </p>
         </motion.div>
@@ -72,8 +72,8 @@ const GoToMarket = () => {
                       <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-space-grotesk font-semibold mb-6 border border-primary/30">
                         {phase.timeline}
                       </span>
-                      <h3 className="text-2xl font-space-grotesk font-bold mb-4 text-foreground">{phase.title}</h3>
-                      <p className="text-foreground/70 font-inter leading-relaxed text-lg">{phase.description}</p>
+                      <h3 className="text-2xl md:text-3xl font-space-grotesk font-bold mb-4 text-foreground">{phase.title}</h3>
+                      <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed">{phase.description}</p>
                     </div>
                   </motion.div>
                 );

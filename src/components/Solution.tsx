@@ -32,10 +32,10 @@ const Solution = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 leading-tight tracking-tight">
             The AURA Smart Pole <span className="gradient-text">—</span> A Guardian for Every Streetlight
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
             Fusing sensors, AI, and real-time decision-making into one modular intelligence system.
           </p>
         </motion.div>
@@ -60,8 +60,8 @@ const Solution = () => {
                 >
                   <Icon className="text-background" size={36} />
                 </motion.div>
-                <h3 className="text-3xl font-space-grotesk font-bold mb-4 text-foreground">{feature.title}</h3>
-                <p className="text-foreground/70 font-inter leading-relaxed text-lg">{feature.description}</p>
+                <h3 className="text-2xl md:text-3xl font-space-grotesk font-bold mb-4 text-foreground">{feature.title}</h3>
+                <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed">{feature.description}</p>
               </motion.div>
             );
           })}
@@ -74,7 +74,7 @@ const Solution = () => {
           viewport={{ once: true }}
           className="text-center glass-card p-12 rounded-xl max-w-4xl mx-auto border border-primary/20 hover:border-primary/40 transition-all duration-500"
         >
-          <p className="text-2xl md:text-3xl font-inter font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl font-inter font-medium leading-relaxed text-foreground">
             AURA doesn't just record data — it{" "}
             <span className="text-primary font-bold neon-text">detects</span>,{" "}
             <span className="text-secondary font-bold">understands</span>, and{" "}

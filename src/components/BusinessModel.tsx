@@ -47,10 +47,10 @@ const BusinessModel = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             Our Scalable Revenue Model
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
             Our hybrid <span className="text-primary font-semibold">Hardware + Software + Data</span> model ensures recurring, scalable revenue across multiple streams.
           </p>
         </motion.div>
@@ -75,9 +75,9 @@ const BusinessModel = () => {
                 >
                   <Icon className="text-primary" size={28} />
                 </motion.div>
-                <h3 className="text-4xl font-poppins font-bold gradient-text mb-3">{stream.percentage}</h3>
-                <h4 className="text-lg font-space-grotesk font-bold mb-3 text-foreground">{stream.title}</h4>
-                <p className="text-sm text-foreground/70 font-inter leading-relaxed">{stream.description}</p>
+                <h3 className="text-3xl md:text-4xl font-poppins font-bold gradient-text mb-3">{stream.percentage}</h3>
+                <h4 className="text-xl font-space-grotesk font-bold mb-3 text-foreground">{stream.title}</h4>
+                <p className="text-base text-foreground/70 font-inter leading-relaxed">{stream.description}</p>
               </motion.div>
             );
           })}

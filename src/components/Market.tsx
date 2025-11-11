@@ -32,10 +32,10 @@ const Market = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             The Trillion-Dollar Transformation
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-4xl mx-auto leading-relaxed">
             Government mandates + 5G maturity + urgent public safety needs = <span className="text-primary font-semibold">Perfect market timing</span>
           </p>
         </motion.div>
@@ -65,11 +65,11 @@ const Market = () => {
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.3, type: "spring" }}
                   viewport={{ once: true }}
-                  className="text-5xl md:text-6xl font-poppins font-bold mb-5 gradient-text"
+                  className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-5 gradient-text"
                 >
                   {stat.value}
                 </motion.h3>
-                <p className="text-foreground/70 font-inter text-lg leading-relaxed">{stat.label}</p>
+                <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed">{stat.label}</p>
               </motion.div>
             );
           })}

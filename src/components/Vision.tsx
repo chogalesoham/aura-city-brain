@@ -31,11 +31,11 @@ const Vision = () => {
                 ease: "easeInOut",
               }}
             >
-              <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-10 leading-relaxed text-foreground">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-10 leading-relaxed text-foreground tracking-tight">
                 "Every cry for help should be answered —{" "}
                 <span className="gradient-text neon-text">instantly</span>."
               </h2>
-              <p className="text-xl md:text-2xl text-foreground/70 font-inter leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground/70 font-inter leading-relaxed">
                 AURA's mission is to empower cities with intelligent, proactive safety networks that never sleep.
               </p>
             </motion.div>

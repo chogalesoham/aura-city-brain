@@ -14,10 +14,10 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             About TruVibe Technology
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
             Pioneering urban intelligence at the intersection of AI and infrastructure.
           </p>
         </motion.div>
@@ -38,8 +38,8 @@ const About = () => {
               <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-primary/20 transition-colors duration-300">
                 <Building className="text-primary" size={36} />
               </div>
-              <h3 className="font-space-grotesk font-bold mb-3 text-xl text-foreground">Innovation Hub</h3>
-              <p className="text-foreground/70 font-inter">Mumbai, India</p>
+              <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Innovation Hub</h3>
+              <p className="text-base text-foreground/70 font-inter">Mumbai, India</p>
             </motion.div>
             
             <motion.div 
@@ -50,8 +50,8 @@ const About = () => {
               <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-primary/20 transition-colors duration-300">
                 <Users className="text-primary" size={36} />
               </div>
-              <h3 className="font-space-grotesk font-bold mb-3 text-xl text-foreground">Expert Leadership</h3>
-              <p className="text-foreground/70 font-inter">Dr. Shweta Shah, CSO</p>
+              <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Expert Leadership</h3>
+              <p className="text-base text-foreground/70 font-inter">Dr. Shweta Shah, CSO</p>
             </motion.div>
             
             <motion.div 
@@ -62,16 +62,16 @@ const About = () => {
               <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-primary/20 transition-colors duration-300">
                 <Lightbulb className="text-primary" size={36} />
               </div>
-              <h3 className="font-space-grotesk font-bold mb-3 text-xl text-foreground">R&D Focus</h3>
+              <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">R&D Focus</h3>
               <p className="text-foreground/70 font-inter">AI & Smart Infrastructure</p>
             </motion.div>
           </div>
 
           <div className="space-y-8 text-center">
-            <p className="text-xl text-foreground/80 font-inter leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground/70 font-inter leading-relaxed">
               TruVibe Technology stands at the forefront of urban intelligence, pioneering the integration of artificial intelligence with critical infrastructure to create safer, smarter cities.
             </p>
-            <p className="text-xl text-foreground/80 font-inter leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground/70 font-inter leading-relaxed">
               Our mission is to transform urban environments into responsive, intelligent ecosystems that proactively protect and serve citizens through advanced sensor fusion and real-time AI analytics.
             </p>
             <div className="pt-8">

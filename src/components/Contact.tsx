@@ -35,10 +35,10 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             Get in Touch
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
             Ready to transform your city? Let's start the conversation.
           </p>
         </motion.div>
@@ -108,7 +108,7 @@ const Contact = () => {
                   <MapPin className="text-primary" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-space-grotesk font-bold mb-3 text-xl text-foreground">Location</h3>
+                  <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Location</h3>
                   <p className="text-foreground/70 font-inter text-lg">Mumbai, India</p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ const Contact = () => {
                   <Mail className="text-primary" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-space-grotesk font-bold mb-3 text-xl text-foreground">Email</h3>
+                  <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Email</h3>
                   <a href="mailto:contact@truvibe.ai" className="text-primary hover:text-secondary transition-colors font-inter text-lg">
                     contact@truvibe.ai
                   </a>
@@ -135,8 +135,8 @@ const Contact = () => {
               className="glass-card p-8 rounded-xl bg-gradient-primary hover:neon-glow-strong transition-all duration-500"
               whileHover={{ scale: 1.03 }}
             >
-              <h3 className="text-background font-space-grotesk font-bold mb-3 text-2xl">Ready to Deploy?</h3>
-              <p className="text-background/90 mb-6 font-inter text-lg leading-relaxed">
+              <h3 className="text-white font-space-grotesk font-bold mb-3 text-xl md:text-2xl">Ready to Deploy?</h3>
+              <p className="text-white/90 mb-6 font-inter text-lg leading-relaxed">
                 Join the cities already benefiting from AURA's proactive protection
               </p>
               <Button variant="secondary" className="w-full py-6 text-lg font-medium hover:scale-105 transition-transform">

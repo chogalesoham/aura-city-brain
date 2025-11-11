@@ -25,7 +25,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-poppins font-extrabold mb-8 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold mb-8 leading-tight tracking-tight"
             >
               Building the Neural Network for{" "}
               <span className="gradient-text">Smarter, Safer Cities</span>
@@ -35,7 +35,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl md:text-2xl text-foreground/80 font-inter mb-10 leading-relaxed max-w-3xl"
+              className="text-lg md:text-xl text-foreground/70 font-inter mb-10 leading-relaxed max-w-3xl"
             >
               AURA transforms ordinary streetlights into <span className="text-primary font-semibold">intelligent AI guardians</span> — detecting, understanding, and acting in real time.
             </motion.p>

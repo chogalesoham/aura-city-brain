@@ -37,10 +37,10 @@ const AICore = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-poppins font-extrabold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             The Brain Behind AURA
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
             Our AI Fusion Core processes multiple data streams simultaneously for unparalleled situational awareness and predictive intelligence.
           </p>
         </motion.div>
@@ -67,8 +67,8 @@ const AICore = () => {
                     <Icon className="text-primary" size={36} />
                   </motion.div>
                   <div>
-                    <h3 className="text-2xl font-space-grotesk font-bold mb-4 text-foreground">{feature.title}</h3>
-                    <p className="text-foreground/70 font-inter leading-relaxed text-lg">{feature.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-space-grotesk font-bold mb-4 text-foreground">{feature.title}</h3>
+                    <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               </motion.div>
