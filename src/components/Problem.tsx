@@ -21,7 +21,7 @@ const Problem = () => {
   ];
 
   return (
-    <section id="problem" className="py-32 relative">
+    <section id="problem" className="py-32 relative" role="region" aria-labelledby="problem-heading">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(0,212,255,0.08),transparent_70%)]" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -32,7 +32,7 @@ const Problem = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
+          <h2 id="problem-heading" className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 gradient-text leading-tight tracking-tight">
             Cities Are Flying Blind
           </h2>
           <p className="text-lg md:text-xl text-foreground/70 font-inter max-w-3xl mx-auto leading-relaxed">
@@ -51,17 +51,27 @@ const Problem = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.03, y: -5 }}
-                className="glass-card p-8 rounded-xl hover:neon-glow transition-all duration-500 cursor-pointer group"
+                whileFocus={{ scale: 1.03, y: -5 }}
+                tabIndex={0}
+                className="glass-card p-8 rounded-xl hover:neon-glow transition-all duration-500 cursor-pointer group outline-none focus:outline-none"
               >
-                <motion.div 
+                <motion.div
                   className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Icon className="text-primary" size={32} />
+                  <Icon className="text-primary" size={32} aria-hidden />
                 </motion.div>
-                <h3 className="text-2xl md:text-3xl font-space-grotesk font-bold mb-4 text-foreground">{problem.title}</h3>
+                <h3 id={`problem-title-${index}`} className="text-2xl md:text-3xl font-space-grotesk font-bold mb-4 text-foreground">{problem.title}</h3>
                 <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed">{problem.description}</p>
+                <p className="mt-4">
+                  <a href="#solution" className="inline-flex items-center text-primary hover:underline text-sm font-medium" aria-label={`Learn how we solve ${problem.title}`}>
+                    Learn how we solve it
+                    <svg className="ml-2" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                </p>
               </motion.div>
             );
           })}

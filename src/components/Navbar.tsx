@@ -18,6 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Problem", href: "#problem" },
     { name: "Solution", href: "#solution" },
+    { name: "Product", href: "#product" },
     { name: "AI Core", href: "#ai-core" },
     { name: "Applications", href: "#applications" },
     { name: "Market", href: "#market" },

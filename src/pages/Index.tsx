@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
+import Product from "@/components/Product";
 import AICore from "@/components/AICore";
 import UseCases from "@/components/UseCases";
 import Market from "@/components/Market";
@@ -19,6 +20,7 @@ const Index = () => {
       <HeroSection />
       <Problem />
       <Solution />
+      <Product />
       <AICore />
       <UseCases />
       <Market />
