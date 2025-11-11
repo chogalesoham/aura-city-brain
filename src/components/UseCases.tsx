@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Ambulance, Satellite, Activity, Sparkles } from "lucide-react";
+import { Shield, Ambulance, Satellite, Activity, Sparkles, Zap, AlertCircle, CheckCircle } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const UseCases = () => {
   const [activeTab, setActiveTab] = useState("safety");
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   const cases = [
     {
@@ -168,114 +169,324 @@ const UseCases = () => {
                           </div>
                         </motion.div>
 
-                        {/* Process Steps - Minimal Grid */}
+                        {/* Process Steps - Enhanced Interactive Grid */}
                         <div className="grid gap-6 md:gap-8">
-                          {/* Step 1 */}
+                          {/* Step 1 - Incident Detection */}
                           <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="group"
+                            onMouseEnter={() => setHoveredStep(1)}
+                            onMouseLeave={() => setHoveredStep(null)}
+                            className="group relative"
                           >
-                            <div className="flex gap-4 items-start">
-                              <div className="shrink-0 mt-1">
-                                <div 
-                                  className="w-10 h-10 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-sm"
-                                  style={{ backgroundColor: useCase.accent }}
-                                >
-                                  01
+                            {/* Animated background glow on hover */}
+                            <motion.div
+                              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                              style={{ background: `radial-gradient(circle, ${useCase.accent}40, transparent)` }}
+                            />
+                            
+                            <div className="relative p-6 rounded-2xl border border-border/30 bg-background/40 backdrop-blur-sm group-hover:border-opacity-60 group-hover:bg-background/60 transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+                              {/* Animated particles on hover */}
+                              {hoveredStep === 1 && (
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl">
+                                  {Array.from({ length: 8 }).map((_, i) => (
+                                    <motion.div
+                                      key={i}
+                                      className="absolute w-1 h-1 rounded-full"
+                                      style={{ 
+                                        backgroundColor: useCase.accent,
+                                        left: `${Math.random() * 100}%`,
+                                        top: `${Math.random() * 100}%`,
+                                      }}
+                                      animate={{
+                                        scale: [0, 1.5, 0],
+                                        opacity: [0, 1, 0],
+                                      }}
+                                      transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        delay: i * 0.2,
+                                      }}
+                                    />
+                                  ))}
                                 </div>
-                              </div>
-                              <div className="flex-1 space-y-2">
-                                <h4 className="text-xl font-space-grotesk font-semibold text-foreground flex items-center gap-2">
-                                  Incident Detected
-                                  <Activity size={16} className="text-foreground/40" />
-                                </h4>
-                                <p className="text-base text-foreground/70 font-inter leading-relaxed">
-                                  {useCase.incident}
-                                </p>
+                              )}
+                              
+                              <div className="flex gap-5 items-start">
+                                <div className="shrink-0 mt-1">
+                                  <motion.div 
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-lg relative overflow-hidden"
+                                    style={{ backgroundColor: useCase.accent }}
+                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                  >
+                                    {/* Shimmer effect */}
+                                    <motion.div
+                                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                      animate={{ x: ['-100%', '200%'] }}
+                                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                                    />
+                                    <span className="relative z-10">01</span>
+                                  </motion.div>
+                                </div>
+                                <div className="flex-1 space-y-3">
+                                  <div className="flex items-center gap-3">
+                                    <h4 className="text-xl md:text-2xl font-space-grotesk font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                                      Incident Detected
+                                    </h4>
+                                    <motion.div
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: hoveredStep === 1 ? 1 : 0 }}
+                                      transition={{ type: "spring", stiffness: 300 }}
+                                    >
+                                      <AlertCircle size={20} style={{ color: useCase.accent }} />
+                                    </motion.div>
+                                  </div>
+                                  <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                                    {useCase.incident}
+                                  </p>
+                                  {/* Progress bar animation on hover */}
+                                  <motion.div
+                                    className="h-1 rounded-full overflow-hidden bg-muted"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: hoveredStep === 1 ? 1 : 0 }}
+                                  >
+                                    <motion.div
+                                      className="h-full rounded-full"
+                                      style={{ backgroundColor: useCase.accent }}
+                                      initial={{ width: 0 }}
+                                      animate={{ width: hoveredStep === 1 ? '100%' : 0 }}
+                                      transition={{ duration: 1.5 }}
+                                    />
+                                  </motion.div>
+                                </div>
                               </div>
                             </div>
                           </motion.div>
 
-                          {/* Connector */}
+                          {/* Enhanced Connector with animation */}
                           <motion.div
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="flex justify-start ml-5"
+                            className="flex justify-start ml-6 relative"
                           >
-                            <div 
-                              className="w-0.5 h-8 rounded-full"
-                              style={{ backgroundColor: useCase.accent + '30' }}
-                            />
+                            <div className="relative">
+                              <div 
+                                className="w-0.5 h-12 rounded-full"
+                                style={{ backgroundColor: useCase.accent + '30' }}
+                              />
+                              {/* Flowing dot animation */}
+                              <motion.div
+                                className="absolute w-2 h-2 rounded-full -left-0.5"
+                                style={{ backgroundColor: useCase.accent }}
+                                animate={{ y: [0, 48, 0] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                              />
+                            </div>
                           </motion.div>
 
-                          {/* Step 2 */}
+                          {/* Step 2 - AI Analysis */}
                           <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="group"
+                            onMouseEnter={() => setHoveredStep(2)}
+                            onMouseLeave={() => setHoveredStep(null)}
+                            className="group relative"
                           >
-                            <div className="flex gap-4 items-start">
-                              <div className="shrink-0 mt-1">
-                                <div 
-                                  className="w-10 h-10 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-sm"
-                                  style={{ backgroundColor: useCase.accent }}
-                                >
-                                  02
+                            <motion.div
+                              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                              style={{ background: `radial-gradient(circle, ${useCase.accent}40, transparent)` }}
+                            />
+                            
+                            <div className="relative p-6 rounded-2xl border border-border/30 bg-background/40 backdrop-blur-sm group-hover:border-opacity-60 group-hover:bg-background/60 transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+                              {/* Circuit pattern on hover */}
+                              {hoveredStep === 2 && (
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl opacity-20">
+                                  <svg className="w-full h-full" viewBox="0 0 200 100">
+                                    <motion.path
+                                      d="M 20 50 L 50 50 L 60 40 L 80 40 L 90 50 L 120 50"
+                                      stroke={useCase.accent}
+                                      strokeWidth="1"
+                                      fill="none"
+                                      initial={{ pathLength: 0 }}
+                                      animate={{ pathLength: 1 }}
+                                      transition={{ duration: 2, repeat: Infinity }}
+                                    />
+                                    <motion.path
+                                      d="M 20 60 L 40 60 L 50 70 L 70 70 L 80 60 L 120 60"
+                                      stroke={useCase.accent}
+                                      strokeWidth="1"
+                                      fill="none"
+                                      initial={{ pathLength: 0 }}
+                                      animate={{ pathLength: 1 }}
+                                      transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
+                                    />
+                                  </svg>
                                 </div>
-                              </div>
-                              <div className="flex-1 space-y-2">
-                                <h4 className="text-xl font-space-grotesk font-semibold text-foreground flex items-center gap-2">
-                                  AI Analysis
-                                  <Activity size={16} className="text-foreground/40" />
-                                </h4>
-                                <p className="text-base text-foreground/70 font-inter leading-relaxed">
-                                  {useCase.detection}
-                                </p>
+                              )}
+                              
+                              <div className="flex gap-5 items-start">
+                                <div className="shrink-0 mt-1">
+                                  <motion.div 
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-lg relative overflow-hidden"
+                                    style={{ backgroundColor: useCase.accent }}
+                                    whileHover={{ scale: 1.1, rotate: -5 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                  >
+                                    <motion.div
+                                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                      animate={{ x: ['-100%', '200%'] }}
+                                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                                    />
+                                    <span className="relative z-10">02</span>
+                                  </motion.div>
+                                </div>
+                                <div className="flex-1 space-y-3">
+                                  <div className="flex items-center gap-3">
+                                    <h4 className="text-xl md:text-2xl font-space-grotesk font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                                      AI Analysis
+                                    </h4>
+                                    <motion.div
+                                      initial={{ scale: 0, rotate: 0 }}
+                                      animate={{ 
+                                        scale: hoveredStep === 2 ? 1 : 0,
+                                        rotate: hoveredStep === 2 ? 360 : 0
+                                      }}
+                                      transition={{ type: "spring", stiffness: 300 }}
+                                    >
+                                      <Zap size={20} style={{ color: useCase.accent }} />
+                                    </motion.div>
+                                  </div>
+                                  <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                                    {useCase.detection}
+                                  </p>
+                                  <motion.div
+                                    className="h-1 rounded-full overflow-hidden bg-muted"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: hoveredStep === 2 ? 1 : 0 }}
+                                  >
+                                    <motion.div
+                                      className="h-full rounded-full"
+                                      style={{ backgroundColor: useCase.accent }}
+                                      initial={{ width: 0 }}
+                                      animate={{ width: hoveredStep === 2 ? '100%' : 0 }}
+                                      transition={{ duration: 1.5 }}
+                                    />
+                                  </motion.div>
+                                </div>
                               </div>
                             </div>
                           </motion.div>
 
-                          {/* Connector */}
+                          {/* Connector 2 */}
                           <motion.div
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="flex justify-start ml-5"
+                            className="flex justify-start ml-6 relative"
                           >
-                            <div 
-                              className="w-0.5 h-8 rounded-full"
-                              style={{ backgroundColor: useCase.accent + '30' }}
-                            />
+                            <div className="relative">
+                              <div 
+                                className="w-0.5 h-12 rounded-full"
+                                style={{ backgroundColor: useCase.accent + '30' }}
+                              />
+                              <motion.div
+                                className="absolute w-2 h-2 rounded-full -left-0.5"
+                                style={{ backgroundColor: useCase.accent }}
+                                animate={{ y: [0, 48, 0] }}
+                                transition={{ duration: 2, delay: 0.3, repeat: Infinity, ease: "linear" }}
+                              />
+                            </div>
                           </motion.div>
 
-                          {/* Step 3 */}
+                          {/* Step 3 - Automated Response */}
                           <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="group"
+                            onMouseEnter={() => setHoveredStep(3)}
+                            onMouseLeave={() => setHoveredStep(null)}
+                            className="group relative"
                           >
-                            <div className="flex gap-4 items-start">
-                              <div className="shrink-0 mt-1">
-                                <div 
-                                  className="w-10 h-10 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-sm"
-                                  style={{ backgroundColor: useCase.accent }}
-                                >
-                                  03
+                            <motion.div
+                              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                              style={{ background: `radial-gradient(circle, ${useCase.accent}40, transparent)` }}
+                            />
+                            
+                            <div className="relative p-6 rounded-2xl border border-border/30 bg-background/40 backdrop-blur-sm group-hover:border-opacity-60 group-hover:bg-background/60 transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+                              {/* Success ripples on hover */}
+                              {hoveredStep === 3 && (
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl">
+                                  {Array.from({ length: 3 }).map((_, i) => (
+                                    <motion.div
+                                      key={i}
+                                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 rounded-full"
+                                      style={{ borderColor: useCase.accent + '40' }}
+                                      initial={{ width: 0, height: 0, opacity: 1 }}
+                                      animate={{ 
+                                        width: 200, 
+                                        height: 200, 
+                                        opacity: 0 
+                                      }}
+                                      transition={{
+                                        duration: 2,
+                                        delay: i * 0.4,
+                                        repeat: Infinity,
+                                      }}
+                                    />
+                                  ))}
                                 </div>
-                              </div>
-                              <div className="flex-1 space-y-2">
-                                <h4 className="text-xl font-space-grotesk font-semibold text-foreground flex items-center gap-2">
-                                  Automated Response
-                                  <Activity size={16} className="text-foreground/40" />
-                                </h4>
-                                <p className="text-base text-foreground/70 font-inter leading-relaxed">
-                                  {useCase.response}
-                                </p>
+                              )}
+                              
+                              <div className="flex gap-5 items-start">
+                                <div className="shrink-0 mt-1">
+                                  <motion.div 
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-white shadow-lg relative overflow-hidden"
+                                    style={{ backgroundColor: useCase.accent }}
+                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                  >
+                                    <motion.div
+                                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                      animate={{ x: ['-100%', '200%'] }}
+                                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                                    />
+                                    <span className="relative z-10">03</span>
+                                  </motion.div>
+                                </div>
+                                <div className="flex-1 space-y-3">
+                                  <div className="flex items-center gap-3">
+                                    <h4 className="text-xl md:text-2xl font-space-grotesk font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                                      Automated Response
+                                    </h4>
+                                    <motion.div
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: hoveredStep === 3 ? 1 : 0 }}
+                                      transition={{ type: "spring", stiffness: 300 }}
+                                    >
+                                      <CheckCircle size={20} style={{ color: useCase.accent }} />
+                                    </motion.div>
+                                  </div>
+                                  <p className="text-base md:text-lg text-foreground/70 font-inter leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                                    {useCase.response}
+                                  </p>
+                                  <motion.div
+                                    className="h-1 rounded-full overflow-hidden bg-muted"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: hoveredStep === 3 ? 1 : 0 }}
+                                  >
+                                    <motion.div
+                                      className="h-full rounded-full"
+                                      style={{ backgroundColor: useCase.accent }}
+                                      initial={{ width: 0 }}
+                                      animate={{ width: hoveredStep === 3 ? '100%' : 0 }}
+                                      transition={{ duration: 1.5 }}
+                                    />
+                                  </motion.div>
+                                </div>
                               </div>
                             </div>
                           </motion.div>
