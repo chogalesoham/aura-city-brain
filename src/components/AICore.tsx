@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
-import { Brain, Clock, Zap, Target } from "lucide-react";
+import { Cpu, Timer, Sparkles, Crosshair } from "lucide-react";
 
 const AICore = () => {
   const coreFeatures = [
     {
-      icon: Brain,
+      icon: Cpu,
       title: "Multimodal Fusion",
       description: "Combines video, audio, thermal, and environmental data streams into a unified intelligence layer for complete situational awareness.",
     },
     {
-      icon: Clock,
+      icon: Timer,
       title: "Temporal Correlation",
       description: "Analyzes patterns over time, correlating historical and real-time data to predict and prevent incidents before they escalate.",
     },
     {
-      icon: Zap,
+      icon: Sparkles,
       title: "Dynamic Adaptation",
       description: "Continuously learns from every interaction, refining detection models and response protocols to improve accuracy and efficiency.",
     },
     {
-      icon: Target,
+      icon: Crosshair,
       title: "Actionable Insights",
       description: "Delivers instant, context-aware alerts with prioritization logic, ensuring the right authorities receive the right information at the right time.",
     },

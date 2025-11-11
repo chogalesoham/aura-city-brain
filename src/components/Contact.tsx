@@ -23,6 +23,28 @@ const Contact = () => {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const handleScheduleDemo = () => {
+    // Pre-fill the form with demo request
+    setFormData({
+      ...formData,
+      message: "I'm interested in scheduling a demo of AURA Smart Pole. Please contact me to arrange a suitable time.",
+    });
+    
+    // Scroll to the form
+    const formElement = document.getElementById("contact-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    
+    // Focus on the name input
+    setTimeout(() => {
+      const nameInput = document.querySelector('input[placeholder="Your Name"]') as HTMLInputElement;
+      if (nameInput) {
+        nameInput.focus();
+      }
+    }, 500);
+  };
+
   return (
     <section id="contact" className="py-32 relative">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,212,255,0.1),transparent_60%)]" />
@@ -52,7 +74,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="glass-card p-10 rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-500"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
                   placeholder="Your Name"
@@ -139,7 +161,11 @@ const Contact = () => {
               <p className="text-white/90 mb-6 font-inter text-lg leading-relaxed">
                 Join the cities already benefiting from AURA's proactive protection
               </p>
-              <Button variant="secondary" className="w-full py-6 text-lg font-medium hover:scale-105 transition-transform">
+              <Button 
+                variant="secondary" 
+                onClick={handleScheduleDemo}
+                className="w-full py-6 text-lg font-medium hover:scale-105 transition-transform cursor-pointer"
+              >
                 Schedule a Demo
               </Button>
             </motion.div>

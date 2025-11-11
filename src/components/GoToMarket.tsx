@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { Rocket, Building2, Globe2 } from "lucide-react";
+import { MapPin, Building, Network } from "lucide-react";
 
 const GoToMarket = () => {
   const phases = [
     {
-      icon: Rocket,
+      icon: MapPin,
       title: "Private Pilots",
       description: "Gated communities & corporate campuses",
       timeline: "Phase 1",
     },
     {
-      icon: Building2,
+      icon: Building,
       title: "Smart City Pilots",
       description: "Municipal partnerships & government contracts",
       timeline: "Phase 2",
     },
     {
-      icon: Globe2,
+      icon: Network,
       title: "National Scale",
       description: "Pan-India deployment & international expansion",
       timeline: "Phase 3",

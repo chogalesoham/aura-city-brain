@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building, Users, Lightbulb } from "lucide-react";
+import { Factory, UserRoundCog, Lightbulb } from "lucide-react";
 
 const About = () => {
   return (
@@ -36,7 +36,7 @@ const About = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-primary/20 transition-colors duration-300">
-                <Building className="text-primary" size={36} />
+                <Factory className="text-primary" size={36} />
               </div>
               <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Innovation Hub</h3>
               <p className="text-base text-foreground/70 font-inter">Mumbai, India</p>
@@ -48,7 +48,7 @@ const About = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-primary/20 transition-colors duration-300">
-                <Users className="text-primary" size={36} />
+                <UserRoundCog className="text-primary" size={36} />
               </div>
               <h3 className="font-space-grotesk font-bold mb-3 text-xl md:text-2xl text-foreground">Expert Leadership</h3>
               <p className="text-base text-foreground/70 font-inter">Dr. Shweta Shah, CSO</p>

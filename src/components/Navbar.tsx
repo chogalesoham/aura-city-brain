@@ -58,9 +58,6 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
-            <Button className="bg-gradient-primary text-primary-foreground hover:opacity-90 font-medium transition-all duration-300 hover:scale-105 hover:neon-glow-strong">
-              Get in Touch
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,9 +91,6 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
-            <Button className="w-full mt-4 bg-gradient-primary text-primary-foreground hover:opacity-90">
-              Get in Touch
-            </Button>
           </motion.div>
         )}
       </div>

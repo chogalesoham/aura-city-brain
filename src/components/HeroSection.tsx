@@ -1,9 +1,16 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-smart-pole.jpg";
 
 const HeroSection = () => {
+  const handleDiscoverClick = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated Background */}
@@ -49,20 +56,11 @@ const HeroSection = () => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   size="lg"
-                  className="bg-gradient-primary text-primary-foreground hover:opacity-90 hover:neon-glow-strong font-medium px-8 py-6 text-lg group transition-all duration-300"
+                  onClick={handleDiscoverClick}
+                  className="bg-gradient-primary text-primary-foreground hover:opacity-90 hover:neon-glow-strong font-medium px-8 py-6 text-lg group transition-all duration-300 cursor-pointer"
                 >
                   Discover AURA
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/30 text-primary hover:bg-primary/10 hover:border-primary font-medium px-8 py-6 text-lg backdrop-blur-sm transition-all duration-300"
-                >
-                  <Play className="mr-2" size={20} />
-                  Watch in Action
                 </Button>
               </motion.div>
             </motion.div>
